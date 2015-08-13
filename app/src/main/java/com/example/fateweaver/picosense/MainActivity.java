@@ -3,7 +3,6 @@ package com.example.fateweaver.picosense;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -11,7 +10,7 @@ import android.widget.Button;
 
 
 public class MainActivity extends AppCompatActivity {
-    Intent bgSrv = new Intent(MainActivity.this, SenseService.class);
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,16 +21,15 @@ public class MainActivity extends AppCompatActivity {
         final Button startBtn = (Button) findViewById(R.id.start);
         startBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
-                Log.d("BPRESS", "Start pressed");
-                startService(bgSrv);
+
+                startService(new Intent(MainActivity.this, SenseService.class));
             }
         });
         final Button stopBtn = (Button) findViewById(R.id.stop);
         stopBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // Perform action on click
-                stopService(bgSrv);
+
+                stopService(new Intent(MainActivity.this, SenseService.class));
             }
         });
     }
@@ -58,5 +56,5 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    // Add broadcast receiver here to stop com.example.fateweaver.picosense.SenseService if we lose internet
+
 }
