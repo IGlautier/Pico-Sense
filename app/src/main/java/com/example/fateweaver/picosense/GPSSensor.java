@@ -53,8 +53,7 @@ public class GPSSensor implements LocationListener{
                 e.printStackTrace();
             }
 
-            //String filename = Long.toString(gps.get(0).getTime());
-            String filename = "hello.txt";
+            String filename = "gps" + Long.toString(gps.get(0).getTime());
             FileOutputStream outputStream;
 
             try {
@@ -66,25 +65,6 @@ public class GPSSensor implements LocationListener{
             } catch (Exception e) {
                 e.printStackTrace();
             }
-
-
-            int ch;
-            StringBuffer fileContent = new StringBuffer("");
-            FileInputStream fis;
-            try {
-                fis = context.openFileInput( "hello.txt" );
-                try {
-                    while( (ch = fis.read()) != -1)
-                        fileContent.append((char)ch);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            } catch (FileNotFoundException e) {
-                e.printStackTrace();
-            }
-
-            String data = new String(fileContent);
-            Log.d("NQM", data);
         }
     }
 
