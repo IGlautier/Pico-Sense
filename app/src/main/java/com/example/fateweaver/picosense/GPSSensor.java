@@ -38,7 +38,7 @@ public class GPSSensor implements LocationListener{
         Toast.makeText(context, "location changed", Toast.LENGTH_SHORT).show();
         gps.add(new GPSReading(loc.getLatitude(), loc.getLongitude(), loc.getTime()));
 
-        if (gps.size() >  2) {
+        if (gps.size() >  100) {
             JSONArray json = new JSONArray();
             try {
                 for(int i = 0; i < gps.size(); i++) {

@@ -64,7 +64,9 @@ public class LocalSensors implements SensorEventListener {
                 break;
             case Sensor.TYPE_AMBIENT_TEMPERATURE :
                 temperature.add(new SensorReading(event.values[0], event.timestamp));
-                if (temperature.size() > 40) {
+                Log.d("TEMP", Integer.toString(temperature.size()));
+                if (temperature.size() > 100) {
+                    Log.d("TEMP", "SAVING");
                     JSONArray json = new JSONArray();
                     try {
                         for (int i = 0; i < temperature.size(); i++) {
@@ -73,7 +75,7 @@ public class LocalSensors implements SensorEventListener {
                             data.put("temperature", temperature.get(i).getValue());
                             json.put(data);
                         }
-                        Toast.makeText(context, "added items", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "added temperature", Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -83,7 +85,7 @@ public class LocalSensors implements SensorEventListener {
                 break;
             case Sensor.TYPE_LIGHT :
                 light.add(new SensorReading(event.values[0], event.timestamp));
-                if (light.size() > 40) {
+                if (light.size() > 1000) {
                     JSONArray json = new JSONArray();
                     try {
                         for (int i = 0; i < light.size(); i++) {
@@ -92,7 +94,7 @@ public class LocalSensors implements SensorEventListener {
                             data.put("light", light.get(i).getValue());
                             json.put(data);
                         }
-                        Toast.makeText(context, "added items", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "added light", Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -102,7 +104,7 @@ public class LocalSensors implements SensorEventListener {
                 break;
             case Sensor.TYPE_PRESSURE :
                 pressure.add(new SensorReading(event.values[0], event.timestamp));
-                if (pressure.size() > 40) {
+                if (pressure.size() > 1000) {
                     JSONArray json = new JSONArray();
                     try {
                         for (int i = 0; i < pressure.size(); i++) {
@@ -111,7 +113,7 @@ public class LocalSensors implements SensorEventListener {
                             data.put("pressure", pressure.get(i).getValue());
                             json.put(data);
                         }
-                        Toast.makeText(context, "added items", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "added pressure", Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -121,7 +123,7 @@ public class LocalSensors implements SensorEventListener {
                 break;
             case Sensor.TYPE_RELATIVE_HUMIDITY :
                 humidity.add(new SensorReading(event.values[0], event.timestamp));
-                if (humidity.size() > 40) {
+                if (humidity.size() > 100) {
                     JSONArray json = new JSONArray();
                     try {
                         for (int i = 0; i < humidity.size(); i++) {
@@ -130,7 +132,7 @@ public class LocalSensors implements SensorEventListener {
                             data.put("humidity", humidity.get(i).getValue());
                             json.put(data);
                         }
-                        Toast.makeText(context, "added items", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(context, "added humidity", Toast.LENGTH_SHORT).show();
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -151,7 +153,7 @@ public class LocalSensors implements SensorEventListener {
 
         if (accelerationSquareRoot >= 2) acceleration.add(reading);
 
-        if (acceleration.size() > 40) {
+        if (acceleration.size() > 1000) {
             JSONArray json = new JSONArray();
             try {
                 for(int i = 0; i < acceleration.size(); i++) {
@@ -162,7 +164,7 @@ public class LocalSensors implements SensorEventListener {
                     data.put("z", acceleration.get(i).getZ());
                     json.put(data);
                 }
-                Toast.makeText(context, "added items", Toast.LENGTH_SHORT).show();
+                Toast.makeText(context, "added acceleration", Toast.LENGTH_SHORT).show();
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -202,6 +204,12 @@ public class LocalSensors implements SensorEventListener {
 
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
+    }
+
+    public void destroy() {
+        for (Sensor it : sensors) {
+            sensorManager.unregisterListener(this);
+        }
     }
 
 }

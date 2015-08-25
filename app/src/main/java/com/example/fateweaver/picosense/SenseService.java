@@ -45,7 +45,9 @@ public class SenseService extends Service {
     @Override
     public void onDestroy() {
         if(gps != null) locationManager.removeUpdates(gps);
+        localSensors.destroy();
         Toast.makeText(this, "service done", Toast.LENGTH_SHORT).show();
+
     }
 
 
