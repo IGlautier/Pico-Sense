@@ -11,6 +11,9 @@ import android.widget.Toast;
 import com.koushikdutta.async.callback.CompletedCallback;
 import com.koushikdutta.async.http.WebSocket;
 import com.koushikdutta.async.http.server.AsyncHttpServer;
+import com.koushikdutta.async.http.server.AsyncHttpServerRequest;
+import com.koushikdutta.async.http.server.AsyncHttpServerResponse;
+import com.koushikdutta.async.http.server.HttpServerRequestCallback;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -46,11 +49,6 @@ public class LocalSensors implements SensorEventListener {
     private AsyncHttpServer.WebSocketRequestCallback mWebSocketCallback;
 
 
-
-
-
-
-
     public LocalSensors (Context _context) {
         this.context = _context;
 
@@ -64,9 +62,9 @@ public class LocalSensors implements SensorEventListener {
         mAsyncHttpServer = new AsyncHttpServer();
         lastMag = 0L;
 
-        mWebSocketCallback = new AsyncHttpServer.WebSocketRequestCallback() {
+       mWebSocketCallback = new AsyncHttpServer.WebSocketRequestCallback() {
             @Override
-            public void onConnected(final WebSocket webSocket, RequestHeaders headers) {
+            public void onConnected(final WebSocket webSocket, AsyncHttpServerRequest headers) {
                 mSockets.add(webSocket);
                 webSocket.send("Welcome Client");
                 webSocket.setClosedCallback(new CompletedCallback() {
@@ -115,7 +113,7 @@ public class LocalSensors implements SensorEventListener {
 
             case Sensor.TYPE_AMBIENT_TEMPERATURE :
                 temperature.add(new SensorReading(event.values[0], event.timestamp));
-                Log.d("TEMP", Integer.toString(temperature.size()));
+
                 if (temperature.size() > 100) {
                     Log.d("TEMP", "SAVING");
                     JSONArray json = new JSONArray();
@@ -207,11 +205,11 @@ public class LocalSensors implements SensorEventListener {
             float accelerationSquareRoot = (reading.getX() * reading.getX()  + reading.getY()  * reading.getY()  + reading.getZ()  * reading.getZ() ) / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
 
             if (accelerationSquareRoot >= 2) {
-                Log.d("ACC", Float.toString(reading.getX()));
+               
                 acceleration.add(reading);
             }
 
-            if (acceleration.size() > 500) {
+            if (acceleration.size() > 10) {
 
                 JSONArray json = new JSONArray();
                 try {
@@ -226,6 +224,10 @@ public class LocalSensors implements SensorEventListener {
                     Toast.makeText(context, "added acceleration", Toast.LENGTH_SHORT).show();
                 } catch (JSONException e) {
                     e.printStackTrace();
+                }
+                for (WebSocket socket : mSockets) {
+                    socket.send(json.toString());
+                    Log.d("WS", json.toString());
                 }
 
                 String filename = "accel" + Long.toString(acceleration.get(0).getTime());
@@ -251,7 +253,6 @@ public class LocalSensors implements SensorEventListener {
             AccelerometerReading reading = new AccelerometerReading(event.values, event.timestamp);
 
             magnetic.add(reading);
-            Log.d("MAG", Float.toString(reading.getX()));
             if (magnetic.size() > 500) {
                 JSONArray json = new JSONArray();
                 try {
