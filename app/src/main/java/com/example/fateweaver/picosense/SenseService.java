@@ -10,9 +10,10 @@ import com.koushikdutta.async.http.WebSocket;
 
 
 /**
- * Created by Fateweaver on 12/08/2015.
+ * Created by Ivan Glautier on 12/08/2015.
  */
-public class SenseService extends Service {
+public class SenseService extends Service { // Background service that keeps listening for sensor events while minimised
+
     LocalSensors localSensors;
     LocationManager locationManager;
     GPSSensor gps;
@@ -32,9 +33,8 @@ public class SenseService extends Service {
                     LocationManager.GPS_PROVIDER, 5000, 10, gps);
 
         }
+
         else Toast.makeText(this, "GPS Disabled", Toast.LENGTH_SHORT).show();
-
-
 
     }
 

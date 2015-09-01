@@ -1,7 +1,7 @@
 package com.example.fateweaver.picosense;
 
 /**
- * Created by Fateweaver on 13/08/2015.
+ * Created by Ivan Glautier on 13/08/2015.
  */
 public class GPSReading extends SensorReading {
     double lat, lon;

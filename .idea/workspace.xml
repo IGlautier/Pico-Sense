@@ -10,7 +10,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="237303dc-c105-45ba-8a5f-6a4296a9287e" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/AccelerometerReading.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/AccelerometerReading.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSReading.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSReading.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSSensor.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSSensor.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SenseService.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SenseService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SensorReading.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SensorReading.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Pico-Sense.iws" />
@@ -53,7 +58,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SensorReading.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -63,7 +68,7 @@
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SenseService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+              <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -72,15 +77,15 @@
       <file leaf-file-name="LocalSensors.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.4722222">
-              <caret line="131" column="83" selection-start-line="131" selection-start-column="83" selection-end-line="131" selection-end-column="83" />
+            <state vertical-scroll-proportion="0.19444445">
+              <caret line="31" column="83" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
               <folding>
-                <element signature="e#2156#3227#0" expanded="true" />
-                <element signature="e#2459#2867#0" expanded="true" />
-                <element signature="e#2866#2867#0" expanded="true" />
-                <element signature="e#2914#3201#0" expanded="true" />
-                <element signature="e#3200#3201#0" expanded="true" />
-                <element signature="e#3226#3227#0" expanded="true" />
+                <element signature="e#2364#3398#0" expanded="true" />
+                <element signature="e#2684#3092#0" expanded="true" />
+                <element signature="e#3091#3092#0" expanded="true" />
+                <element signature="e#3139#3372#0" expanded="true" />
+                <element signature="e#3371#3372#0" expanded="true" />
+                <element signature="e#3397#3398#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -91,6 +96,46 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="4" column="65" selection-start-line="4" selection-start-column="65" selection-end-line="4" selection-end-column="65" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MainActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/MainActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GPSSensor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSSensor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GPSReading.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSReading.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AccelerometerReading.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/AccelerometerReading.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="27" />
               <folding />
             </state>
           </provider>
@@ -1534,9 +1579,13 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/build.gradle" />
-        <option value="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SenseService.java" />
         <option value="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
         <option value="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SenseService.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SensorReading.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/AccelerometerReading.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSReading.java" />
+        <option value="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSSensor.java" />
       </list>
     </option>
   </component>
@@ -1604,6 +1653,38 @@
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pico-Sense" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidSourceTypeNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="picosense" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Pico-Sense" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidModuleNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="manifests" />
               <option name="myItemType" value="com.android.tools.idea.navigator.nodes.AndroidManifestsGroupNode" />
             </PATH_ELEMENT>
@@ -1632,6 +1713,36 @@
       <option name="MODE" value="default_activity" />
       <option name="DEPLOY" value="true" />
       <option name="ARTIFACT_NAME" value="" />
+      <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
+      <option name="USE_LAST_SELECTED_DEVICE" value="false" />
+      <option name="PREFERRED_AVD" value="" />
+      <option name="USE_COMMAND_LINE" value="true" />
+      <option name="COMMAND_LINE" value="" />
+      <option name="WIPE_USER_DATA" value="false" />
+      <option name="DISABLE_BOOT_ANIMATION" value="false" />
+      <option name="NETWORK_SPEED" value="full" />
+      <option name="NETWORK_LATENCY" value="none" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="FILTER_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SELECTED_CLOUD_MATRIX_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_MATRIX_PROJECT_ID" value="" />
+      <option name="SELECTED_CLOUD_DEVICE_CONFIGURATION_ID" value="0" />
+      <option name="SELECTED_CLOUD_DEVICE_PROJECT_ID" value="" />
+      <option name="IS_VALID_CLOUD_MATRIX_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_MATRIX_SELECTION_ERROR" value="" />
+      <option name="IS_VALID_CLOUD_DEVICE_SELECTION" value="false" />
+      <option name="INVALID_CLOUD_DEVICE_SELECTION_ERROR" value="" />
+      <option name="CLOUD_DEVICE_SERIAL_NUMBER" value="" />
+      <method />
+    </configuration>
+    <configuration default="true" type="AndroidTestRunConfigurationType" factoryName="Android Tests">
+      <module name="" />
+      <option name="TESTING_TYPE" value="0" />
+      <option name="INSTRUMENTATION_RUNNER_CLASS" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="PACKAGE_NAME" value="" />
       <option name="TARGET_SELECTION_MODE" value="EMULATOR" />
       <option name="USE_LAST_SELECTED_DEVICE" value="false" />
       <option name="PREFERRED_AVD" value="" />
@@ -1689,6 +1800,11 @@
       </option>
       <envs />
       <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="JarApplication" factoryName="JAR Application">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="Remote" factoryName="Remote">
@@ -1795,7 +1911,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441104082780</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Finished websockets">
+      <created>1441104455073</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1441104455073</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1844,7 +1966,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="server initial code" />
     <MESSAGE value="Working websockets" />
-    <option name="LAST_COMMIT_MESSAGE" value="Working websockets" />
+    <MESSAGE value="Finished websockets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Finished websockets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1880,12 +2003,12 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2156#3227#0" expanded="true" />
-            <element signature="e#2459#2867#0" expanded="true" />
-            <element signature="e#2866#2867#0" expanded="true" />
-            <element signature="e#2914#3201#0" expanded="true" />
-            <element signature="e#3200#3201#0" expanded="true" />
-            <element signature="e#3226#3227#0" expanded="true" />
+            <element signature="e#2364#3398#0" expanded="true" />
+            <element signature="e#2684#3092#0" expanded="true" />
+            <element signature="e#3091#3092#0" expanded="true" />
+            <element signature="e#3139#3372#0" expanded="true" />
+            <element signature="e#3371#3372#0" expanded="true" />
+            <element signature="e#3397#3398#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1919,13 +2042,29 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#2156#3227#0" expanded="true" />
-            <element signature="e#2459#2867#0" expanded="true" />
-            <element signature="e#2866#2867#0" expanded="true" />
-            <element signature="e#2914#3201#0" expanded="true" />
-            <element signature="e#3200#3201#0" expanded="true" />
-            <element signature="e#3226#3227#0" expanded="true" />
+            <element signature="e#2364#3398#0" expanded="true" />
+            <element signature="e#2684#3092#0" expanded="true" />
+            <element signature="e#3091#3092#0" expanded="true" />
+            <element signature="e#3139#3372#0" expanded="true" />
+            <element signature="e#3371#3372#0" expanded="true" />
+            <element signature="e#3397#3398#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SenseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="35" column="0" selection-start-line="35" selection-start-column="0" selection-end-line="35" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SensorReading.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1937,18 +2076,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SenseService.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/AccelerometerReading.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+          <caret line="3" column="14" selection-start-line="3" selection-start-column="14" selection-end-line="3" selection-end-column="27" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/SensorReading.java">
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSReading.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/GPSSensor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="27" selection-start-line="24" selection-start-column="27" selection-end-line="24" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/MainActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="29" column="41" selection-start-line="29" selection-start-column="41" selection-end-line="29" selection-end-column="41" />
           <folding />
         </state>
       </provider>
@@ -1963,15 +2118,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4722222">
-          <caret line="131" column="83" selection-start-line="131" selection-start-column="83" selection-end-line="131" selection-end-column="83" />
+        <state vertical-scroll-proportion="0.19444445">
+          <caret line="31" column="83" selection-start-line="31" selection-start-column="83" selection-end-line="31" selection-end-column="83" />
           <folding>
-            <element signature="e#2156#3227#0" expanded="true" />
-            <element signature="e#2459#2867#0" expanded="true" />
-            <element signature="e#2866#2867#0" expanded="true" />
-            <element signature="e#2914#3201#0" expanded="true" />
-            <element signature="e#3200#3201#0" expanded="true" />
-            <element signature="e#3226#3227#0" expanded="true" />
+            <element signature="e#2364#3398#0" expanded="true" />
+            <element signature="e#2684#3092#0" expanded="true" />
+            <element signature="e#3091#3092#0" expanded="true" />
+            <element signature="e#3139#3372#0" expanded="true" />
+            <element signature="e#3371#3372#0" expanded="true" />
+            <element signature="e#3397#3398#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -27,12 +27,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by Fateweaver on 13/08/2015.
+ * Created by Ivan Glautier on 13/08/2015.
  */
-public class LocalSensors implements SensorEventListener {
+public class LocalSensors implements SensorEventListener { // Handles sensor events
 
     private Context context;
 
+    // Holds all sensor readings until they are stored
     private List<SensorReading> temperature;
     private List<SensorReading> light;
     private List<SensorReading> pressure;
@@ -41,9 +42,11 @@ public class LocalSensors implements SensorEventListener {
     private ArrayList<AccelerometerReading> magnetic;
     private Long lastMag;
 
+    // Controls access to sensors
     private SensorManager sensorManager;
     private List<Sensor> sensors;
 
+    // For websocket server
     private ArrayList<WebSocket> mSockets;
     private AsyncHttpServer mAsyncHttpServer;
     private AsyncHttpServer.WebSocketRequestCallback mWebSocketCallback;
@@ -52,21 +55,25 @@ public class LocalSensors implements SensorEventListener {
     public LocalSensors (Context _context) {
         this.context = _context;
 
+        // Initialisation
         temperature = new ArrayList<SensorReading>();
         light = new ArrayList<SensorReading>();
         pressure = new ArrayList<SensorReading>();
         humidity = new ArrayList<SensorReading>();
         acceleration = new ArrayList<AccelerometerReading>();
         magnetic = new ArrayList<AccelerometerReading>();
-        mSockets = new ArrayList<WebSocket>();
-        mAsyncHttpServer = new AsyncHttpServer();
         lastMag = 0L;
 
-       mWebSocketCallback = new AsyncHttpServer.WebSocketRequestCallback() {
+        // Websocket server setup
+        mSockets = new ArrayList<WebSocket>();
+        mAsyncHttpServer = new AsyncHttpServer();
+
+
+        mWebSocketCallback = new AsyncHttpServer.WebSocketRequestCallback() {
             @Override
             public void onConnected(final WebSocket webSocket, AsyncHttpServerRequest headers) {
                 mSockets.add(webSocket);
-                webSocket.send("Welcome Client");
+                webSocket.send("Welcome Client"); // Not essential
                 webSocket.setClosedCallback(new CompletedCallback() {
                     @Override
                     public void onCompleted(Exception ex) {
@@ -81,8 +88,8 @@ public class LocalSensors implements SensorEventListener {
                 webSocket.setStringCallback(new WebSocket.StringCallback() {
                     @Override
                     public void onStringAvailable(String s) {
-                        Log.d("SERVERTAG",s);
-                        Toast.makeText(context,s,Toast.LENGTH_SHORT).show();
+                    // Can put in some logic for validating clients
+
                     }
                 });
             }
@@ -91,7 +98,7 @@ public class LocalSensors implements SensorEventListener {
         mAsyncHttpServer.websocket("/",mWebSocketCallback);
         mAsyncHttpServer.listen(3000);
 
-
+        // Sensors setup
         sensorManager = (SensorManager) context.getSystemService(context.SENSOR_SERVICE);
 
         sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
@@ -104,7 +111,9 @@ public class LocalSensors implements SensorEventListener {
     }
 
     public void onSensorChanged(SensorEvent event) {
+
         int type = event.sensor.getType();
+
         switch(type) {
             case Sensor.TYPE_ACCELEROMETER : newAcceleration(event);
 
@@ -114,7 +123,7 @@ public class LocalSensors implements SensorEventListener {
             case Sensor.TYPE_AMBIENT_TEMPERATURE :
                 temperature.add(new SensorReading(event.values[0], event.timestamp));
 
-                if (temperature.size() > 100) {
+                if (temperature.size() > 100) { // Publish if we have 100 readings
                     Log.d("TEMP", "SAVING");
                     JSONArray json = new JSONArray();
                     try {
@@ -129,16 +138,17 @@ public class LocalSensors implements SensorEventListener {
                         e.printStackTrace();
                     }
 
-                    for (WebSocket socket : mSockets) socket.send(json.toString());
+                    for (WebSocket socket : mSockets) socket.send(json.toString()); // Push to websocket
 
-                    String filename = "temp" + Long.toString(temperature.get(0).getTime());
+                    String filename = "temp" + Long.toString(temperature.get(0).getTime()); // Save json file (need some method of cleaning these and historical requests)
                     if(saveData(filename, json)) temperature.clear();
                 }
                 break;
 
             case Sensor.TYPE_LIGHT :
                 light.add(new SensorReading(event.values[0], event.timestamp));
-                if (light.size() > 1000) {
+
+                if (light.size() > 1000) { // Publish after 1000 readings
                     JSONArray json = new JSONArray();
                     try {
                         for (int i = 0; i < light.size(); i++) {
@@ -161,7 +171,8 @@ public class LocalSensors implements SensorEventListener {
 
             case Sensor.TYPE_PRESSURE :
                 pressure.add(new SensorReading(event.values[0], event.timestamp));
-                if (pressure.size() > 1000) {
+
+                if (pressure.size() > 1000) { // Publish after 1000 readings
                     JSONArray json = new JSONArray();
                     try {
                         for (int i = 0; i < pressure.size(); i++) {
@@ -184,7 +195,8 @@ public class LocalSensors implements SensorEventListener {
 
             case Sensor.TYPE_RELATIVE_HUMIDITY :
                 humidity.add(new SensorReading(event.values[0], event.timestamp));
-                if (humidity.size() > 100) {
+
+                if (humidity.size() > 100) { // Publish after 100 readings
                     JSONArray json = new JSONArray();
                     try {
                         for (int i = 0; i < humidity.size(); i++) {
@@ -211,17 +223,14 @@ public class LocalSensors implements SensorEventListener {
     }
 
     public void newAcceleration(SensorEvent event) {
-
+            // Separate sensor event class as we deal with 3 values per reading
             AccelerometerReading reading = new AccelerometerReading(event.values, event.timestamp);
 
             float accelerationSquareRoot = (reading.getX() * reading.getX()  + reading.getY()  * reading.getY()  + reading.getZ()  * reading.getZ() ) / (SensorManager.GRAVITY_EARTH * SensorManager.GRAVITY_EARTH);
 
-            if (accelerationSquareRoot >= 2) {
-               
-                acceleration.add(reading);
-            }
+            if (accelerationSquareRoot >= 2) acceleration.add(reading); // Avoid flooding with values
 
-            if (acceleration.size() > 500) {
+            if (acceleration.size() > 500) { // Publish after 500 readings
 
                 JSONArray json = new JSONArray();
                 try {
@@ -240,8 +249,7 @@ public class LocalSensors implements SensorEventListener {
 
                 for (WebSocket socket : mSockets) socket.send(json.toString());
 
-
-                String filename = "accel" + Long.toString(acceleration.get(0).getTime());
+                String filename = "accel" + Long.toString(acceleration.get(0).getTime()); // Controls file names
                 FileOutputStream outputStream;
 
                 try {
@@ -282,7 +290,7 @@ public class LocalSensors implements SensorEventListener {
 
                 for (WebSocket socket : mSockets) socket.send(json.toString());
 
-                String filename = "mag" + Long.toString(magnetic.get(0).getTime());
+                String filename = "mag" + Long.toString(magnetic.get(0).getTime()); // Controls file names
                 FileOutputStream outputStream;
 
                 try {
@@ -290,7 +298,6 @@ public class LocalSensors implements SensorEventListener {
                     outputStream.write(json.toString().getBytes());
                     outputStream.close();
                     acceleration.clear();
-                    //   Log.d("MAG", json.toString());
                     Toast.makeText(context, "saved file", Toast.LENGTH_SHORT).show();
                 } catch (Exception e) {
                     e.printStackTrace();
