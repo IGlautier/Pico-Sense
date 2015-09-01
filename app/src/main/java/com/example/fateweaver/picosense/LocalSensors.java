@@ -128,6 +128,9 @@ public class LocalSensors implements SensorEventListener {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+                    for (WebSocket socket : mSockets) socket.send(json.toString());
+
                     String filename = "temp" + Long.toString(temperature.get(0).getTime());
                     if(saveData(filename, json)) temperature.clear();
                 }
@@ -148,6 +151,9 @@ public class LocalSensors implements SensorEventListener {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+                    for (WebSocket socket : mSockets) socket.send(json.toString());
+
                     String filename = "light" + Long.toString(light.get(0).getTime());
                     if(saveData(filename, json)) light.clear();
                 }
@@ -168,6 +174,9 @@ public class LocalSensors implements SensorEventListener {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+                    for (WebSocket socket : mSockets) socket.send(json.toString());
+
                     String filename = "press" + Long.toString(pressure.get(0).getTime());
                     if(saveData(filename, json)) pressure.clear();
                 }
@@ -188,6 +197,9 @@ public class LocalSensors implements SensorEventListener {
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
+
+                    for (WebSocket socket : mSockets) socket.send(json.toString());
+
                     String filename = "humid" + Long.toString(humidity.get(0).getTime());
                     if(saveData(filename, json)) humidity.clear();
                 }
@@ -209,7 +221,7 @@ public class LocalSensors implements SensorEventListener {
                 acceleration.add(reading);
             }
 
-            if (acceleration.size() > 10) {
+            if (acceleration.size() > 500) {
 
                 JSONArray json = new JSONArray();
                 try {
@@ -225,10 +237,9 @@ public class LocalSensors implements SensorEventListener {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
-                for (WebSocket socket : mSockets) {
-                    socket.send(json.toString());
-                    Log.d("WS", json.toString());
-                }
+
+                for (WebSocket socket : mSockets) socket.send(json.toString());
+
 
                 String filename = "accel" + Long.toString(acceleration.get(0).getTime());
                 FileOutputStream outputStream;
@@ -268,6 +279,8 @@ public class LocalSensors implements SensorEventListener {
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
+
+                for (WebSocket socket : mSockets) socket.send(json.toString());
 
                 String filename = "mag" + Long.toString(magnetic.get(0).getTime());
                 FileOutputStream outputStream;

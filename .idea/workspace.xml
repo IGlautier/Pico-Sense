@@ -10,7 +10,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="237303dc-c105-45ba-8a5f-6a4296a9287e" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -73,8 +72,8 @@
       <file leaf-file-name="LocalSensors.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.2777778">
-              <caret line="211" column="39" selection-start-line="211" selection-start-column="39" selection-end-line="211" selection-end-column="39" />
+            <state vertical-scroll-proportion="0.4722222">
+              <caret line="131" column="83" selection-start-line="131" selection-start-column="83" selection-end-line="131" selection-end-column="83" />
               <folding>
                 <element signature="e#2156#3227#0" expanded="true" />
                 <element signature="e#2459#2867#0" expanded="true" />
@@ -1790,7 +1789,13 @@
       <option name="project" value="LOCAL" />
       <updated>1441095097243</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Working websockets">
+      <created>1441104082780</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1441104082780</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1838,7 +1843,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="server initial code" />
-    <option name="LAST_COMMIT_MESSAGE" value="server initial code" />
+    <MESSAGE value="Working websockets" />
+    <option name="LAST_COMMIT_MESSAGE" value="Working websockets" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1957,8 +1963,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/src/main/java/com/example/fateweaver/picosense/LocalSensors.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2777778">
-          <caret line="211" column="39" selection-start-line="211" selection-start-column="39" selection-end-line="211" selection-end-column="39" />
+        <state vertical-scroll-proportion="0.4722222">
+          <caret line="131" column="83" selection-start-line="131" selection-start-column="83" selection-end-line="131" selection-end-column="83" />
           <folding>
             <element signature="e#2156#3227#0" expanded="true" />
             <element signature="e#2459#2867#0" expanded="true" />
