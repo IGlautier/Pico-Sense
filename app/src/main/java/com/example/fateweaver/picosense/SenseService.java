@@ -6,6 +6,8 @@ import android.location.LocationManager;
 import android.os.IBinder;
 import android.widget.Toast;
 
+import com.koushikdutta.async.http.WebSocket;
+
 
 /**
  * Created by Fateweaver on 12/08/2015.
