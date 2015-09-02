@@ -2,6 +2,7 @@ package com.example.fateweaver.picosense;
 
 import android.app.Service;
 import android.content.Intent;
+import android.hardware.Sensor;
 import android.location.LocationManager;
 import android.os.IBinder;
 import android.widget.Toast;
@@ -22,7 +23,6 @@ public class SenseService extends Service { // Background service that keeps lis
     @Override
     public void onCreate() {
         Toast.makeText(this, "service starting", Toast.LENGTH_SHORT).show();
-
         localSensors = new LocalSensors(this);
 
         locationManager = (LocationManager) getSystemService(LOCATION_SERVICE);
@@ -37,7 +37,19 @@ public class SenseService extends Service { // Background service that keeps lis
         else Toast.makeText(this, "GPS Disabled", Toast.LENGTH_SHORT).show();
 
     }
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        if (intent.getBooleanExtra("pressure", false)) localSensors.addSensor(Sensor.TYPE_PRESSURE);
+        if (intent.getBooleanExtra("accelerometer", false)) localSensors.addSensor(Sensor.TYPE_ACCELEROMETER);
+        if (intent.getBooleanExtra("light", false)) localSensors.addSensor(Sensor.TYPE_LIGHT);
+        if (intent.getBooleanExtra("humidity", false)) localSensors.addSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
+        if (intent.getBooleanExtra("temperature", false)) localSensors.addSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
+        if (intent.getBooleanExtra("magnetic", false)) localSensors.addSensor(Sensor.TYPE_MAGNETIC_FIELD);
 
+        // We want this service to continue running until it is explicitly
+        // stopped, so return sticky.
+        return START_STICKY;
+    }
 
     @Override
     public IBinder onBind(Intent intent) {
