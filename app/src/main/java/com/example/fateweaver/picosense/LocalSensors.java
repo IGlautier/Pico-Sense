@@ -103,11 +103,7 @@ public class LocalSensors implements SensorEventListener { // Handles sensor eve
 
         sensors = sensorManager.getSensorList(Sensor.TYPE_ALL);
 
-        /*for (Sensor it : sensors) {
-            sensorManager.registerListener(this,
-                    sensorManager.getDefaultSensor(it.getType()),
-                    SensorManager.SENSOR_DELAY_NORMAL);
-        }*/
+
     }
 
     public void addSensor(int sensorType) {
@@ -120,17 +116,17 @@ public class LocalSensors implements SensorEventListener { // Handles sensor eve
 
         switch(type) {
             case Sensor.TYPE_ACCELEROMETER :
-                Log.d("ALERT", "acc");
+
                 newAcceleration(event);
 
             case Sensor.TYPE_MAGNETIC_FIELD :
-                Log.d("ALERT", "mag");
+
                 newMagnetic(event);
                 break;
 
             case Sensor.TYPE_AMBIENT_TEMPERATURE :
                 temperature.add(new SensorReading(event.values[0], event.timestamp));
-                Log.d("ALERT", "temp");
+
 
                 if (temperature.size() > 100) { // Publish if we have 100 readings
                     Log.d("TEMP", "SAVING");
@@ -156,7 +152,7 @@ public class LocalSensors implements SensorEventListener { // Handles sensor eve
 
             case Sensor.TYPE_LIGHT :
                 light.add(new SensorReading(event.values[0], event.timestamp));
-                Log.d("ALERT", "light");
+
 
                 if (light.size() > 1000) { // Publish after 1000 readings
                     JSONArray json = new JSONArray();
@@ -181,7 +177,7 @@ public class LocalSensors implements SensorEventListener { // Handles sensor eve
 
             case Sensor.TYPE_PRESSURE :
                 pressure.add(new SensorReading(event.values[0], event.timestamp));
-                Log.d("ALERT", "press");
+
 
                 if (pressure.size() > 1000) { // Publish after 1000 readings
                     JSONArray json = new JSONArray();
@@ -206,7 +202,7 @@ public class LocalSensors implements SensorEventListener { // Handles sensor eve
 
             case Sensor.TYPE_RELATIVE_HUMIDITY :
                 humidity.add(new SensorReading(event.values[0], event.timestamp));
-                Log.d("ALERT", "hum");
+
 
                 if (humidity.size() > 100) { // Publish after 100 readings
                     JSONArray json = new JSONArray();
