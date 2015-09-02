@@ -106,8 +106,8 @@ public class LocalSensors implements SensorEventListener { // Handles sensor eve
 
     }
 
-    public void addSensor(int sensorType) {
-        sensorManager.registerListener(this, sensorManager.getDefaultSensor(sensorType), SensorManager.SENSOR_DELAY_NORMAL);
+    public boolean addSensor(int sensorType) {
+        return sensorManager.registerListener(this, sensorManager.getDefaultSensor(sensorType), SensorManager.SENSOR_DELAY_NORMAL);
     }
 
     public void onSensorChanged(SensorEvent event) {
@@ -116,9 +116,9 @@ public class LocalSensors implements SensorEventListener { // Handles sensor eve
 
         switch(type) {
             case Sensor.TYPE_ACCELEROMETER :
-
+                Log.d("ACC", "SAVING");
                 newAcceleration(event);
-
+                Log.d("MAG", "SAVING");
             case Sensor.TYPE_MAGNETIC_FIELD :
 
                 newMagnetic(event);
@@ -126,7 +126,7 @@ public class LocalSensors implements SensorEventListener { // Handles sensor eve
 
             case Sensor.TYPE_AMBIENT_TEMPERATURE :
                 temperature.add(new SensorReading(event.values[0], event.timestamp));
-
+                Log.d("TEMP", "SAVING");
 
                 if (temperature.size() > 100) { // Publish if we have 100 readings
                     Log.d("TEMP", "SAVING");

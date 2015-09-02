@@ -39,12 +39,12 @@ public class SenseService extends Service { // Background service that keeps lis
     }
     @Override
     public int onStartCommand(Intent intent, int flags, int startId) {
-        if (intent.getBooleanExtra("pressure", false)) localSensors.addSensor(Sensor.TYPE_PRESSURE);
-        if (intent.getBooleanExtra("accelerometer", false)) localSensors.addSensor(Sensor.TYPE_ACCELEROMETER);
-        if (intent.getBooleanExtra("light", false)) localSensors.addSensor(Sensor.TYPE_LIGHT);
-        if (intent.getBooleanExtra("humidity", false)) localSensors.addSensor(Sensor.TYPE_RELATIVE_HUMIDITY);
-        if (intent.getBooleanExtra("temperature", false)) localSensors.addSensor(Sensor.TYPE_AMBIENT_TEMPERATURE);
-        if (intent.getBooleanExtra("magnetic", false)) localSensors.addSensor(Sensor.TYPE_MAGNETIC_FIELD);
+        if (intent.getBooleanExtra("pressure", false)) if(!localSensors.addSensor(Sensor.TYPE_PRESSURE)) Toast.makeText(this, "Pressure Disabled", Toast.LENGTH_SHORT).show();
+        if (intent.getBooleanExtra("accelerometer", false)) if(!localSensors.addSensor(Sensor.TYPE_ACCELEROMETER)) Toast.makeText(this, "Accelerometer Disabled", Toast.LENGTH_SHORT).show();
+        if (intent.getBooleanExtra("light", false)) if(!localSensors.addSensor(Sensor.TYPE_LIGHT)) Toast.makeText(this, "Light Disabled", Toast.LENGTH_SHORT).show();
+        if (intent.getBooleanExtra("humidity", false)) if(!localSensors.addSensor(Sensor.TYPE_RELATIVE_HUMIDITY)) Toast.makeText(this, "Humidity Disabled", Toast.LENGTH_SHORT).show();
+        if (intent.getBooleanExtra("temperature", false)) if(!localSensors.addSensor(Sensor.TYPE_AMBIENT_TEMPERATURE)) Toast.makeText(this, "Temperature Disabled", Toast.LENGTH_SHORT).show();
+        if (intent.getBooleanExtra("magnetic", false)) if(!localSensors.addSensor(Sensor.TYPE_MAGNETIC_FIELD)) Toast.makeText(this, "Magnetic Disabled", Toast.LENGTH_SHORT).show();
 
         // We want this service to continue running until it is explicitly
         // stopped, so return sticky.
